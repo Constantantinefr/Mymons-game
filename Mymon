@@ -1,0 +1,29 @@
+/**
+ *
+ * @author Constantine Rousos
+ */
+public class Mymon {
+    private int hp = 100;
+    public int[] damage = {15,30,10};
+    public Mymon(int hp) {
+        hp = this.hp;
+        
+    }
+    public int attack(String ak) {
+        return damage[Integer.parseInt(ak)-1];
+            
+    }
+    public void updatehp(int damage) {
+        hp=hp-damage;
+        System.out.println("Your hp is now "+(hp));
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public int[] getDamage() {
+        return damage;
+    }
+    
+}
