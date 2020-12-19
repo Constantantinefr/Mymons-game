@@ -1,3 +1,5 @@
+Mymon
+
 /**
  *
  * @author Constantine Rousos
@@ -26,4 +28,71 @@ public class Mymon {
         return damage;
     }
     
+}
+
+
+Enemon
+
+
+/**
+ *
+ * @author Constantine Rousos
+ */
+public class Enemon {
+    private int damage = 0;
+    private int hp = 100;
+     public Enemon(int hp) {
+        hp = this.hp;
+     
+     }
+     public int attack() {
+    int damage = (int) (Math.random()*100+1);
+    System.out.println("Enemon did "+(damage)+" damage");
+    return damage;
+
+            
+}
+      public void updatehp(int damage) {
+        hp=hp-damage;
+        System.out.println("Enemon hp is now "+(hp));
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+    
+}
+
+
+Game
+
+import java.util.Scanner;
+/**
+ *
+ * @author Constantine Rousos
+ */
+public class Game {
+    public static void main(String[] args) {
+Mymon playerone= new Mymon(100);
+Enemon robert=new Enemon(100);
+Scanner move = new Scanner(System.in);  
+while(playerone.getHp()>=0&&robert.getHp()>=0){
+    System.out.println("Pick from moves 1, 2, or 3.");
+
+    String userChoice = move.nextLine();
+    robert.updatehp(playerone.attack(userChoice));
+   System.out.println("You did "+(playerone.attack(userChoice))+ " damage");
+playerone.updatehp(robert.attack());
+    } if(playerone.getHp()<=0) {
+        System.out.println("robert won:(");   
+    }
+    else {
+        System.out.println("Congrats, you won!");
+    }
+    }
+
 }
